@@ -1,5 +1,5 @@
 {
-  "name": "profile-service",
+  "name": "MySchoolProfiile",
   "version": "1.0.0",
   "description": "Profile Microservice for My School Project",
   "main": "index.js",
