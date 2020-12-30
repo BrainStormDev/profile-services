@@ -10,10 +10,10 @@ mongoose.connect(dbUrl, {
       useFindAndModify: false
 })
       .then(() => {
-            logger.log('info', 'DB connection opened (SEEDS FILE)');
+            logger.log('info', 'DB connection opened (teacher.js SEEDS FILE)');
       })
       .catch(err => {
-            logger.log('info', `DB connection failed (SEEDS FILE):: ${err}`);
+            logger.log('info', `DB connection failed (teacher.js SEEDS FILE):: ${err}`);
       });
 
 teacherList = [

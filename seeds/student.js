@@ -10,12 +10,12 @@ mongoose.connect(dbUrl, {
       useFindAndModify: false
 })
       .then(() => {
-            logger.log('info', 'DB connection opened (SEEDS FILE)');
+            logger.log('info', 'DB connection opened (student.js SEEDS FILE)');
       })
       .catch(err => {
             console.log('Something went wrong');
             console.log(err);
-            logger.log('info', `DB connection failed (SEEDS FILE):: ${err}`);
+            logger.log('info', `DB connection failed (student.js SEEDS FILE):: ${err}`);
       });
 
 studentList = [
@@ -52,7 +52,7 @@ studentList = [
 const insertStudentList = () => {
       Student.insertMany(studentList)
             .then(s => {
-                  logger.log('info', `teachers added ${s}`);
+                  logger.log('info', `students added ${s}`);
             })
             .catch(err => {
                   logger.log('info', `error while adding teachers:: ${err}`);
