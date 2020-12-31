@@ -1,19 +1,21 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const logger = require('../config/logger');
 const Student = require('../models/student')
 const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/profileService';
 
-mongoose.connect( dbUrl ,{
+mongoose.connect(dbUrl, {
       useNewUrlParser: true,
       useCreateIndex: true,
       useUnifiedTopology: true,
       useFindAndModify: false
 })
       .then(() => {
-      console.log('DB CONNECTION OPEN');
-})
-      .catch( err => {
+            logger.log('info', 'DB connection opened (student.js SEEDS FILE)');
+      })
+      .catch(err => {
             console.log('Something went wrong');
             console.log(err);
+            logger.log('info', `DB connection failed (student.js SEEDS FILE):: ${err}`);
       });
 
 studentList = [
@@ -48,13 +50,14 @@ studentList = [
 ]
 
 const insertStudentList = () => {
-      Student.insertMany( studentList )
-      .then( s => {
-            console.log(s);
-      })
-      .catch( err => {
-            console.log(err);
-      })
+      Student.insertMany(studentList)
+            .then(s => {
+                  logger.log('info', `students added ${s}`);
+            })
+            .catch(err => {
+                  logger.log('info', `error while adding teachers:: ${err}`);
+                  console.log(err);
+            })
 }
 
 insertStudentList();
