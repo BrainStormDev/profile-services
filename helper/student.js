@@ -15,8 +15,6 @@ callbacks.getStudentList = ( req, res ) => {
 
 callbacks.addStudent = ( req, res ) => {
       const student = new Student( req.body );
-      // console.log(req);
-      // console.log(student);
       student.save()
       .then( s => {
             res.json(s);
