@@ -12,7 +12,8 @@ const studentSchema = new Schema({
       },
       sectionId: {
             type: Schema.Types.ObjectId,
-            ref : 'Section'
+            ref : 'Section',
+            sparse:true
       },
       email: {
             type: String,
