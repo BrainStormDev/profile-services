@@ -14,7 +14,9 @@ callbacks.getStudentList = (req, res) => {
             })
 }
 
-callbacks.addStudent = (req, res) => {
+callbacks.addStudent = ( req, res ) => {
+      const student = new Student( req.body );
+      callbacks.addStudent = (req, res) => {
       const student = new Student(req.body);
       student.save()
             .then(s => {
@@ -25,6 +27,7 @@ callbacks.addStudent = (req, res) => {
                   logger.log('info', `ERROR failed to add students in DB: ${err}`);
                   res.status(404).json({ message: err.message });
             })
+      }
 }
 
 callbacks.updateStudentInfo = (req, res) => {
